@@ -11,9 +11,17 @@ function getWorkouts() {
   fetch(endPoint)
     .then((response) => response.json())
     .then((workouts) => {
-      workouts.data.forEach((workout) => {
-        const workoutMarkup = `
-        <div data-id=${workout.id}>
+      workouts.data
+        .forEach((workout) => {
+          render(workout);
+        })
+        .catch((err) => console.log(err));
+    });
+}
+
+function render(workout) {
+  const workoutMarkup = `
+        <div data-id=${workout.attributes.id}>
         <img src=${workout.attributes.image_url} height="200" width="250">
         <h2> ${workout.attributes.category.name} </h2>
         <h3> ${workout.attributes.title} </h3>
@@ -21,9 +29,7 @@ function getWorkouts() {
         </div>
         <br><br>`;
 
-        document.querySelector("#workout-container").innerHTML += workoutMarkup;
-      });
-    });
+  document.querySelector("#workout-container").innerHTML += workoutMarkup;
 }
 
 function handleCreateForm(event) {
@@ -46,19 +52,11 @@ function postFetch(title, description, image_url, category_id) {
     body: JSON.stringify(dataBody),
   })
     .then((response) => response.json())
+    // .catch((err) => console.log(err))
     .then((workout) => {
       console.log(workout);
-      const workoutData = workout.data.attributes;
+      const workoutData = workout.data;
       // render JSON response
-      const workoutMarkup = `
-        <div data-id=${workout.id}>
-        <img src=${workoutData.image_url} height="200" width="250">
-        <h2> ${workoutData.category.name} </h2>
-        <h3> ${workoutData.title} </h3>
-        <button data-id${workoutData.id}> Edit </button>
-        </div>
-        <br><br>`;
-
-      document.querySelector("#workout-container").innerHTML += workoutMarkup;
+      render(workoutData);
     });
 }
