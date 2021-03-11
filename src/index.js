@@ -12,26 +12,14 @@ function getWorkouts() {
     .then((response) => response.json())
     .then((workouts) => {
       workouts.data.forEach((workout) => {
-        // debugger
         let newWorkout = new Workout(workout, workout.attributes);
 
-        render(workout);
+        document.querySelector(
+          "#workout-container"
+        ).innerHTML += newWorkout.renderWorkoutCard();
       });
       // .catch((err) => console.log(err));
     });
-}
-
-function render(workout) {
-  const workoutMarkup = `
-        <div data-id=${workout.id}>
-        <img src=${workout.attributes.image_url} height="200" width="250">
-        <h2> ${workout.attributes.category.name} </h2>
-        <h3> ${workout.attributes.title} </h3>
-        <button data-id${workout.id}> Edit </button>
-        </div>
-        <br><br>`;
-
-  document.querySelector("#workout-container").innerHTML += workoutMarkup;
 }
 
 function handleCreateForm(event) {
@@ -59,6 +47,10 @@ function postFetch(title, description, image_url, category_id) {
       console.log(workout);
       const workoutData = workout.data;
       // render JSON response
-      render(workoutData);
+      let newWorkout = new Workout(workoutData, workoutData.attributes);
+
+      document.querySelector(
+        "#workout-container"
+      ).innerHTML += newWorkout.renderWorkoutCard();
     });
 }
