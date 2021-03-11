@@ -12,17 +12,13 @@ function getWorkouts() {
     .then((response) => response.json())
     .then((workouts) => {
       workouts.data.forEach((workout) => {
-        const workoutMarkup = `
-        <div data-id=${workout.id}>
-        <img src=${workout.attributes.image_url} height="200" width="250">
-        <h2> ${workout.attributes.category.name} </h2>
-        <h3> ${workout.attributes.title} </h3>
-        <button data-id${workout.id}> Edit </button>
-        </div>
-        <br><br>`;
+        let newWorkout = new Workout(workout, workout.attributes);
 
-        document.querySelector("#workout-container").innerHTML += workoutMarkup;
+        document.querySelector(
+          "#workout-container"
+        ).innerHTML += newWorkout.renderWorkoutCard();
       });
+      // .catch((err) => console.log(err));
     });
 }
 
@@ -46,19 +42,15 @@ function postFetch(title, description, image_url, category_id) {
     body: JSON.stringify(dataBody),
   })
     .then((response) => response.json())
+    // .catch((err) => console.log(err))
     .then((workout) => {
       console.log(workout);
-      const workoutData = workout.data.attributes;
+      const workoutData = workout.data;
       // render JSON response
-      const workoutMarkup = `
-        <div data-id=${workout.id}>
-        <img src=${workoutData.image_url} height="200" width="250">
-        <h2> ${workoutData.category.name} </h2>
-        <h3> ${workoutData.title} </h3>
-        <button data-id${workoutData.id}> Edit </button>
-        </div>
-        <br><br>`;
+      let newWorkout = new Workout(workoutData, workoutData.attributes);
 
-      document.querySelector("#workout-container").innerHTML += workoutMarkup;
+      document.querySelector(
+        "#workout-container"
+      ).innerHTML += newWorkout.renderWorkoutCard();
     });
 }
