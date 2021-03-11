@@ -8,6 +8,47 @@
     <script type="text/javascript" src="index.js"></script>
   </head>
   <body>
+    <div class="form-container">
+      <form id="create-workout-form" action="post">
+        <h3>Create A Workout</h3>
+
+        <input
+          type="text"
+          id="input-title"
+          name="title"
+          value=""
+          placeholder="Title"
+        />
+        <br /><br />
+        <textarea
+          name="description"
+          id="input-description"
+          cols="80"
+          rows="8"
+        ></textarea>
+        <br /><br />
+        <input
+          type="text"
+          id="input-url"
+          name="image"
+          value=""
+          placeholder="Enter a image url"
+        />
+        <br /><br />
+        <p>Choose a Category</p>
+        <select name="categories" id="categories">
+          <option value="1">ESP/3G</option>
+          <option value="2">Enderance/3G</option>
+          <option value="3">Strength/3G</option>
+          <option value="4">Power/3G</option>
+        </select>
+        <br /><br />
+
+        <input type="submit" id="create-button" name="submit" value="Post" />
+      </form>
+    </div>
+    <br /><br />
+
     <div id="workout-container"></div>
   </body>
 </html>
