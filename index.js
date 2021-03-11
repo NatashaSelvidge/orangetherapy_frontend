@@ -37,4 +37,28 @@ function handleCreateForm(event) {
 
 function postFetch(title, description, image_url, category_id) {
   console.log(title, description, image_url, category_id);
+
+  const dataBody = { title, description, image_url, category_id };
+  fetch(endPoint, {
+    //POST request
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dataBody),
+  })
+    .then((response) => response.json())
+    .then((workout) => {
+      console.log(workout);
+      const workoutData = workout.data.attributes;
+      // render JSON response
+      const workoutMarkup = `
+        <div data-id=${workout.id}>
+        <img src=${workoutData.image_url} height="200" width="250">
+        <h2> ${workoutData.category.name} </h2>
+        <h3> ${workoutData.title} </h3>
+        <button data-id${workoutData.id}> Edit </button>
+        </div>
+        <br><br>`;
+
+      document.querySelector("#workout-container").innerHTML += workoutMarkup;
+    });
 }
