@@ -1,10 +1,14 @@
 const endPoint = "http://localhost:3000/api/v1/workouts";
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("Loaded");
   getWorkouts();
 
   let createWorkoutForm = document.querySelector("#create-workout-form");
   createWorkoutForm.addEventListener("submit", handleCreateForm);
+
+  // let viewButtons = document.getElementById("view-button");
+  // viewButtons.addEventListener("click", handleView);
 });
 
 function getWorkouts() {
@@ -28,13 +32,14 @@ function handleCreateForm(event) {
   const descriptionInput = event.target.description.value;
   const imageInput = event.target.image.value;
   const categoryId = parseInt(event.target.categories.value);
+  const created_at = event.target.created_at;
   postFetch(titleInput, descriptionInput, imageInput, categoryId);
 }
 
-function postFetch(title, description, image_url, category_id) {
-  console.log(title, description, image_url, category_id);
+function postFetch(title, description, image_url, category_id, created_at) {
+  // console.log(title, description, image_url, category_id, created_at);
 
-  const dataBody = { title, description, image_url, category_id };
+  const dataBody = { title, description, image_url, category_id, created_at };
   fetch(endPoint, {
     //POST request
     method: "POST",
@@ -42,15 +47,37 @@ function postFetch(title, description, image_url, category_id) {
     body: JSON.stringify(dataBody),
   })
     .then((response) => response.json())
-    // .catch((err) => console.log(err))
     .then((workout) => {
-      console.log(workout);
+      // console.log(workout);
       const workoutData = workout.data;
       // render JSON response
-      let newWorkout = new Workout(workoutData, workoutData.attributes);
+      let newWorkout = new Workout(
+        workoutData,
+        workoutData.attributes
+      );
 
       document.querySelector(
         "#workout-container"
       ).innerHTML += newWorkout.renderWorkoutCard();
+
+      // document.querySelector(
+      //   "#workout-info"
+      // ).innerHTML += newWorkout.renderView();
+
+      // function handleView(e) {
+      //   debugger;
+      //   console.log(e);
+      // }
+
+      // function handleView(e) {
+      //   e.preventDefault();
+      //   e.target.remove();
+      //   renderView();
+      // }
     });
 }
+
+// const handleView = (e) => {
+//   e.target.remove();
+
+// };

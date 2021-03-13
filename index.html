@@ -1,55 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.80.0" />
+    <!-- Js project tags -->
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/workout.js"></script>
+    <title>OrangeTherapy</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/album/"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+      integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+      integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      #workout-view {
+        float: right;
+        margin: 30px;
+      }
+      body {
+        font-family: Lato;
+      }
+      a {
+        color: #ed6e10;
+      }
+      label {
+        color: #fff;
+        font-weight: 300;
+        font-family: cardo;
+        text-transform: uppercase;
+        font-size: 150%;
+        word-spacing: 4px;
+        letter-spacing: 1px;
+      }
+      #splat-top {
+        height: 35px;
+        width: 35px;
+      }
+
+      #jumbo {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.styleblueprint.com%2Fwp-content%2Fuploads%2F2017%2F08%2FStyleBlueprintGuide_Orange_Theory_Midtown_Nashville_PRODUCT_03-2017-16.jpg&f=1&nofb=1");
+        background-size: cover;
+        background-position: bottom;
+        height: 50vh;
+        max-width: 1000vh;
+        background-attachment: fixed;
+        bottom: 20px;
+      }
+
+      /* BUTTONS */
+
+      .btn:link,
+      .btn:visited,
+      button[type="submit"] {
+        display: inline-block;
+        padding: 10px 30px;
+        font-weight: 400;
+        text-decoration: none;
+        border-radius: 200px;
+        transition: background-color 0.2s, border 0.2s, color 0.2s;
+        cursor: pointer;
+        color: #fff;
+        margin-top: 10px;
+      }
+      .btn-full:link,
+      .btn-full:visited,
+      button[type="submit"] {
+        background-color: #ed6e10;
+        border: 1px solid #ed6e10;
+        color: #fff;
+        margin-right: 15px;
+      }
+      .btn:hover,
+      .btn:active,
+      button[type="submit"]:hover,
+      button[type="submit"]:active {
+        background-color: #cf6d17;
+        cursor: pointer;
+      }
+      .btn-full:hover,
+      .btn-full:active {
+        border: 1px solid #cf6d17;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="form-container">
-      <form id="create-workout-form" action="post">
-        <h3>Create A Workout</h3>
+    <header>
+      <!-- NAV STARTS HERE -->
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">
+                The unofficial community for anyone interested in Orangetheory
+                Fitness. Come here to discuss the workouts, the results, and get
+                help from your fellow OTFers. We are operated and moderated by
+                community members, and we are not affiliated with the
+                Orangetheory Fitness company.
+              </p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a
+                    href="https://www.orangetheory.com/en-us/"
+                    class="text-white"
+                    target="_blank"
+                    >OrangeTheory</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://twitter.com/orangetheory"
+                    class="text-white"
+                    target="_blank"
+                    >Twitter</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/OrangeTheoryFitness/"
+                    class="text-white"
+                    target="_blank"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/orangetheory/"
+                    class="text-white"
+                    target="_blank"
+                    >Instagram</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <img
+              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F07%2F05%2Fd5%2F0705d57480aefcae318cd3481b8451d3.jpg&f=1&nofb=1"
+              alt="OrangeTheoryFitnessSplatLogo"
+              id="splat-top"
+            />
+            <strong>OrangeTherapy</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- NAVBAR ENDS -->
+    <main>
+      <section class="py-5 text-center container" id="jumbo">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <form id="create-workout-form">
+              <div class="mb-3">
+                <label class="form-label" name="title">Title</label>
+                <input
+                  name="title"
+                  type="title"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                />
+                <!-- <div id="emailHelp" class="form-text">Tread--Row--Floor</div>
+              </div> -->
+                <div class="mb-3">
+                  <label class="form-label">Description</label>
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                    name="description"
+                  ></textarea>
+                  <label for="exampleInputEmail1">Image Url</label>
+                  <input
+                    type="img"
+                    name="image"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                  />
+                </div>
+                <div class="form-group">
+                  <select
+                    class="form-select"
+                    name="categories"
+                    aria-label="Default select example"
+                  >
+                    <option selected>Select type of workout</option>
+                    <option value="1" name="categories">ESP</option>
+                    <option value="2" name="categories">Enderance</option>
+                    <option value="3" name="categories">Strength</option>
+                    <option value="4" name="categories">Power</option>
+                  </select>
+                </div>
 
-        <input
-          type="text"
-          id="input-title"
-          name="title"
-          value=""
-          placeholder="Title"
-        />
-        <br /><br />
-        <textarea
-          name="description"
-          id="input-description"
-          cols="80"
-          rows="8"
-        ></textarea>
-        <br /><br />
-        <input
-          type="text"
-          id="input-url"
-          name="image"
-          value=""
-          placeholder="Enter a image url"
-        />
-        <br /><br />
-        <p>Choose a Category</p>
-        <select name="categories" id="categories">
-          <option value="1">ESP/3G</option>
-          <option value="2">Enderance/3G</option>
-          <option value="3">Strength/3G</option>
-          <option value="4">Power/3G</option>
-        </select>
-        <br /><br />
+                <button type="submit" class="btn btn-full">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
 
-        <input type="submit" id="create-button" name="submit" value="Post" />
-      </form>
-    </div>
-    <br /><br />
-
-    <div id="workout-container"></div>
+      <div class="album py-5 bg-light">
+        <!-- <button onclick="myFunction()" class="btn btn-view" id="view-button">VIEW</button> -->
+        <div class="container" id="workout-container">
+         
+      </div>
+      <!-- <div class="workout-info"></div> -->
+    </main>
+    <footer class="text-muted py-5">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#">Back to top</a>
+        </p>
+        <p class="mb-1">
+          © 2011 - 2021 ORANGETHERAPY FITNESS. ALL RIGHTS RESERVED.
+        </p>
+        <small class="mb-0">
+          *The “Free Class” offer is open only to first-time visitors and local
+          residents aged 18 years and older; however, minors aged 14 and above
+          may participate if special conditions are met. Valid at participating
+          studios only. Conditions apply. See studios for details. Recommended
+          retail price of a casual visit is $35; however, prices do vary, as
+          each studio is individually owned and operated. Offer may be subject
+          to satisfactory completion of pre-exercise screening and/or standard
+          temporary/guest membership terms.
+        </small>
+      </div>
+    </footer>
+   
   </body>
+
 </html>
