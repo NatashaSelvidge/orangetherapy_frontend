@@ -1,8 +1,8 @@
-const endPoint = "http://localhost:3000/api/v1/workouts";
-const baseUrl = "http://localhost:3000/api/v1/";
 let createWorkoutForm = document.querySelector("#create-workout-form");
 
 document.addEventListener("DOMContentLoaded", init);
+const baseUrl = "http://localhost:3000/api/v1/";
+const endPoint = "http://localhost:3000/api/v1/workouts";
 
 function init() {
   console.log("Loaded");
@@ -88,7 +88,7 @@ function handleCreateForm(event) {
 
 function postFetch(title, description, image_url, category_id, created_at) {
   const dataBody = { title, description, image_url, category_id, created_at };
-  fetch(endPoint, {
+  fetch("http://localhost:3000/api/v1/workouts", {
     //POST request
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -96,9 +96,10 @@ function postFetch(title, description, image_url, category_id, created_at) {
   })
     .then((response) => response.json())
     .then((workout) => {
-      // console.log(workout);
+      console.log(workout);
       const workoutData = workout.data;
       // render JSON response
+      // render(workoutData);
       let newWorkout = new Workout(workoutData, workoutData.attributes);
 
       document.querySelector(
@@ -140,51 +141,3 @@ function handleLoginSignup(e, path) {
       });
   }
 }
-
-// document.querySelector(
-//   "#workout-info"
-// ).innerHTML += newWorkout.renderView();
-
-// function handleView(e) {
-//   debugger;
-//   console.log(e);
-// }
-
-// function handleView(e) {
-//   e.preventDefault();
-//   e.target.remove();
-//   renderView();
-// }
-// const handleView = (e) => {
-//   e.target.remove();
-
-// };
-
-// let viewButtons = document.getElementById("view-button");
-// viewButtons.addEventListener("click", handleView);
-
-// <form id="signUp-form">
-//             <div class="form-group">
-//               <h5 class="text-white">Email</h5>
-//               <input type="email" class="form-control" name="email" id="signUp-email" aria-describedby="emailHelp">
-//               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-//             </div>
-//             <div class="form-group">
-//               <h5 class="text-white">Password</h5>
-//               <input type="password" class="form-control" name="password" id="signUp-password">
-//             </div>
-//             <button type="submit" class="btn btn-primary">Sign Up</button>
-//           </form>
-
-//  <form id="login-form">
-//             <div class="form-group">
-//               <h5 class="text-white">Email</h5>
-//               <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
-//               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-//             </div>
-//             <div class="form-group">
-//               <h5 class="text-white">Password</h5>
-//               <input type="password" class="form-control" id="login-password">
-//             </div>
-//             <button type="submit" class="btn btn-primary">Login</button>
-//           </form>
