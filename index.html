@@ -9,9 +9,10 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Hugo 0.80.0" />
-    <!-- Js project tags -->
-    <script type="text/javascript" src="src/index.js"></script>
+    <!-- Js project tags / css -->
     <script type="text/javascript" src="src/workout.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <link rel="stylesheet" href="./index.css">
     <title>OrangeTherapy</title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -45,98 +46,9 @@
       integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
       crossorigin="anonymous"
     ></script>
-
-    <style>
-      #workout-view {
-        float: right;
-        margin: 30px;
-      }
-      body {
-        font-family: Lato;
-      }
-      a {
-        color: #ed6e10;
-      }
-      label {
-        color: #fff;
-        font-weight: 300;
-        font-family: cardo;
-        text-transform: uppercase;
-        font-size: 150%;
-        word-spacing: 4px;
-        letter-spacing: 1px;
-      }
-      #splat-top {
-        height: 35px;
-        width: 35px;
-      }
-
-      #jumbo {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.6),
-            rgba(0, 0, 0, 0.6)
-          ),
-          url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.styleblueprint.com%2Fwp-content%2Fuploads%2F2017%2F08%2FStyleBlueprintGuide_Orange_Theory_Midtown_Nashville_PRODUCT_03-2017-16.jpg&f=1&nofb=1");
-        background-size: cover;
-        background-position: bottom;
-        height: 50vh;
-        max-width: 1000vh;
-        background-attachment: fixed;
-        bottom: 20px;
-      }
-
-      /* BUTTONS */
-
-      .btn:link,
-      .btn:visited,
-      button[type="submit"] {
-        display: inline-block;
-        padding: 10px 30px;
-        font-weight: 400;
-        text-decoration: none;
-        border-radius: 200px;
-        transition: background-color 0.2s, border 0.2s, color 0.2s;
-        cursor: pointer;
-        color: #fff;
-        margin-top: 10px;
-      }
-      .btn-full:link,
-      .btn-full:visited,
-      button[type="submit"] {
-        background-color: #ed6e10;
-        border: 1px solid #ed6e10;
-        color: #fff;
-        margin-right: 15px;
-      }
-      .btn:hover,
-      .btn:active,
-      button[type="submit"]:hover,
-      button[type="submit"]:active {
-        background-color: #cf6d17;
-        cursor: pointer;
-      }
-      .btn-full:hover,
-      .btn-full:active {
-        border: 1px solid #cf6d17;
-      }
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
   </head>
   <body>
-    <header id="header">
+    <header>
       <!-- NAV STARTS HERE -->
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -145,14 +57,13 @@
               <h4 class="text-white">About</h4>
               <p class="text-muted">
                 The unofficial community for anyone interested in Orangetheory
-                Fitness. Come here to discuss the workouts, the results, and get
-                help from your fellow OTFers. We are operated and moderated by
-                community members, and we are not affiliated with the
-                Orangetheory Fitness company.
+                Fitness. Come here to see early intel with help from your fellow OTFers.
+                 We are operated and moderated by community members, 
+                 and we are not affiliated with the Orangetheory Fitness company.
               </p>
-            </div>
+        </div>
             <div class="col-sm-4 offset-md-1 py-4">
-              <!-- <h4 class="text-white">Contact</h4>
+            <h4 class="text-white">Contact</h4>
               <ul class="list-unstyled">
                 <li>
                   <a
@@ -188,20 +99,10 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> 
         </div>
-      </div> -->
-       
-          <div id="loginDiv">
-    </div>
-    <h1> Please Sign up</h1>
-    <div id="signupDiv">
-    </div>
         </div>
       </div>
-    </div>
-  </div>
-   
       <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
           <a href="#" class="navbar-brand d-flex align-items-center">
@@ -238,7 +139,7 @@
                   name="title"
                   type="title"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="input-title"
                 />
                 <!-- <div id="emailHelp" class="form-text">Tread--Row--Floor</div>
               </div> -->
@@ -246,7 +147,7 @@
                   <label class="form-label">Description</label>
                   <textarea
                     class="form-control"
-                    id="exampleFormControlTextarea1"
+                    id="input-description"
                     rows="3"
                     name="description"
                   ></textarea>
@@ -255,7 +156,7 @@
                     type="img"
                     name="image"
                     class="form-control"
-                    id="exampleInputEmail1"
+                    id="input-image"
                   />
                 </div>
                 <div class="form-group">
@@ -263,6 +164,7 @@
                     class="form-select"
                     name="categories"
                     aria-label="Default select example"
+                    id="input-categories"
                   >
                     <option selected>Select type of workout</option>
                     <option value="1" name="categories">ESP</option>
@@ -279,35 +181,29 @@
         </div>
       </section>
 
+
       <div class="album py-5 bg-light">
-        <!-- <button onclick="myFunction()" class="btn btn-view" id="view-button">VIEW</button> -->
         <div class="container" id="workout-container">
-         
+        
+        </div>
       </div>
-      <!-- <div class="workout-info"></div> -->
+     
     </main>
-  
     <footer class="text-muted py-5">
       <div class="container">
         <p class="float-end mb-1">
           <a href="#">Back to top</a>
         </p>
         <p class="mb-1">
-          © 2011 - 2021 ORANGETHERAPY FITNESS. ALL RIGHTS RESERVED.
+          © 2020 - 2021 ORANGETHERAPY FITNESS. ALL RIGHTS RESERVED.
         </p>
         <small class="mb-0">
-          *The “Free Class” offer is open only to first-time visitors and local
-          residents aged 18 years and older; however, minors aged 14 and above
-          may participate if special conditions are met. Valid at participating
-          studios only. Conditions apply. See studios for details. Recommended
-          retail price of a casual visit is $35; however, prices do vary, as
-          each studio is individually owned and operated. Offer may be subject
-          to satisfactory completion of pre-exercise screening and/or standard
-          temporary/guest membership terms.
+     
         </small>
       </div>
     </footer>
    
   </body>
-
+<script>  
+</script>
 </html>
