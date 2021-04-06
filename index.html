@@ -10,8 +10,7 @@
     />
     <meta name="generator" content="Hugo 0.80.0" />
     <!-- Js project tags / css -->
-    <script type="text/javascript" src="src/workout.js"></script>
-    <script type="text/javascript" src="src/index.js"></script>
+ 
     <link rel="stylesheet" href="./index.css">
     <title>OrangeTherapy</title>
     <!-- GOOGLE FONTS -->
@@ -48,11 +47,14 @@
     ></script>
   </head>
   <body>
+   
     <header>
       <!-- NAV STARTS HERE -->
       <div class="collapse bg-dark" id="navbarHeader">
+       
         <div class="container">
           <div class="row">
+            
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
               <p class="text-muted">
@@ -128,71 +130,26 @@
       </div>
     </header>
     <!-- NAVBAR ENDS -->
-    <main>
+    <div id="search">
+      
+    </div>
       <section class="py-5 text-center container" id="jumbo">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
-            <form id="create-workout-form">
-              <div class="mb-3">
-                <label class="form-label" name="title">Title</label>
-                <input
-                  name="title"
-                  type="title"
-                  class="form-control"
-                  id="input-title"
-                />
-                <!-- <div id="emailHelp" class="form-text">Tread--Row--Floor</div>
-              </div> -->
-                <div class="mb-3">
-                  <label class="form-label">Description</label>
-                  <textarea
-                    class="form-control"
-                    id="input-description"
-                    rows="3"
-                    name="description"
-                  ></textarea>
-                  <label for="exampleInputEmail1">Image Url</label>
-                  <input
-                    type="img"
-                    name="image"
-                    class="form-control"
-                    id="input-image"
-                  />
-                </div>
-                <div class="form-group">
-                  <select
-                    class="form-select"
-                    name="categories"
-                    aria-label="Default select example"
-                    id="input-categories"
-                  >
-                    <option selected>Select type of workout</option>
-                    <option value="1" name="categories">ESP</option>
-                    <option value="2" name="categories">Enderance</option>
-                    <option value="3" name="categories">Strength</option>
-                    <option value="4" name="categories">Power</option>
-                  </select>
-                </div>
-
-                <button type="submit" class="btn btn-full">Submit</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-
-      <div class="album py-5 bg-light">
-        <div class="container" id="workout-container">
-        
+           <div id="main">
+             
+           </div>
         </div>
       </div>
-     
-    </main>
-    <footer class="text-muted py-5">
-      <div class="container">
-        <p class="float-end mb-1">
-          <a href="#">Back to top</a>
+    </section>
+  <!--Workout Card Starts Here-->
+      <div class="container" id="workout-container">
+        
+      </div>
+  <footer class="text-muted py-5" id="footer">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Back to top</a>
         </p>
         <p class="mb-1">
           © 2020 - 2021 ORANGETHERAPY FITNESS. ALL RIGHTS RESERVED.
@@ -202,8 +159,8 @@
         </small>
       </div>
     </footer>
-   
+    <script type="text/javascript" src="src/index.js"></script>
+      <script type="text/javascript" src="src/workout.js"></script>
   </body>
-<script>  
-</script>
+
 </html>

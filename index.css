@@ -1,5 +1,15 @@
 body {
   font-family: Lato;
+  background-color: white;
+  color: black;
+}
+
+#search {
+  float: right;
+}
+ul,
+li {
+  text-decoration: none;
 }
 
 a {
@@ -21,10 +31,10 @@ label {
 
 #jumbo {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.styleblueprint.com%2Fwp-content%2Fuploads%2F2017%2F08%2FStyleBlueprintGuide_Orange_Theory_Midtown_Nashville_PRODUCT_03-2017-16.jpg&f=1&nofb=1");
+    url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.franchisesamerica.com%2F700x-%2Ffranchise_file%2F1192%2Fac5e3416e5bde5851905d2cd438873aedd0999d9.jpg&f=1&nofb=1");
   background-size: cover;
   background-position: bottom;
-  height: 50vh;
+  height: 60vh;
   max-width: 1000vh;
   background-attachment: fixed;
   bottom: 20px;
@@ -90,4 +100,8 @@ div #whole-card-workout {
 
 .card-text {
   white-space: pre;
+}
+
+#footer {
+  background-color: rgb(235, 232, 232);
 }
